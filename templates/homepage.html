@@ -1,0 +1,37 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{%static 'homepage.css'%}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="">Tab2</a></li>
+                <li><a href="">Tab1</a></li>
+                <li><a href="">Tab3</a></li>
+                <li><a href="">Tab4</a></li>
+                <li><a href="">Tab5</a></li>
+                <input type="text" placeholder="Search by Name,Phone Number or Email" id="search" >
+                <input type="submit" value="Search" id="button">
+            </ul>
+        </nav>
+        <form action="/homepage.html" method="POST">
+            {%csrf_token%}
+            <label for="fname">First Name :</label>
+            <input type="text" name="fname"><br>
+            <label for="lname">Last Name :</label>
+            <input type="text" name="lname"><br>
+            <label for="phone">Phone :</label>
+            <input type="phone" name="phone"><br>
+            <input type="submit">
+        </form>
+        <p>This is our Facebook App</p>
+    </div>
+</body>
+</html>

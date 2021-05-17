@@ -1,0 +1,35 @@
+*{
+    margin: 0%;
+    padding: 0ch;
+}
+ul{
+    position: relative;
+    top: 10px;
+}
+li{
+    display: inline-block;
+    list-style-type:none;
+}
+a:hover{
+    color: rgb(182, 179, 179);
+}
+a{
+    margin-left: 3vw;
+    margin-right: 3vw;
+    color: aliceblue;
+    text-decoration: none;
+}
+nav{
+    background-color: rgb(0 0 0 / 72%);
+    width: 100vw;
+    height: 40px;
+}
+#search{
+    width: 18vw;
+    position: absolute;
+    right:55px;
+}
+#button{
+    position: absolute;
+    right:4px;
+}
