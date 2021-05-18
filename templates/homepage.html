@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    <link rel="stylesheet" href="{%static 'homepage.css'%}">
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
 </head>
 <body>
     <div class="container">
@@ -24,14 +24,38 @@
         <form action="/homepage.html" method="POST">
             {%csrf_token%}
             <label for="fname">First Name :</label>
-            <input type="text" name="fname"><br>
+            <input type="text" name="fname" placeholder="Ex: John" id="fname" required><br>
             <label for="lname">Last Name :</label>
-            <input type="text" name="lname"><br>
+            <input type="text" name="lname" placeholder="Ex: Wick" id="lname" required><br>
+            <label for="Email">Email :</label>
+            <input type="email" name="Email" placeholder="Ex: John@gmail.com" id="Email" required><br>
             <label for="phone">Phone :</label>
-            <input type="phone" name="phone"><br>
-            <input type="submit">
+            <input type="phone" name="phone" placeholder="Ex: 9823454238" id="phone" required><br>
+            <label for="BloodSugar">Blood Sugar (mg/dL) :</label>
+            <input type="number" name="BloodSugar" id="BloodSugar" required placeholder="Ex: 125mg/dL"><br>
+            <label for="Blood Pressure ">Blood Pressure (Systolic / Diastolic in mmHg) :</label>
+            <input type="number" name="BloodPressureSystolic" id="BloodPressureSystolic" required placeholder="120mmHg (Systolic)">
+            <input type="number" name="BloodPressureDiastolic" id="BloodPressureDiastolic" required placeholder="80mmHg (Diastolic)"><br>
+            <label for="Pulse">Pulse (Beats/Minute):</label>
+            <input type="number" name="Pulse" id="Pulse" required placeholder="Ex: 72 Beats/Min"><br>
+            <label for="SpO2">SpO2 (Percent):</label>
+            <input type="number" name="SpO2" id="SpO2" required placeholder="90"><br>
+            <label for="Tick">Please Tick which is applicable :</label><br>
+            <label for="Fever">Fever :</label>
+            <input type="checkbox" name="Fever" id="Fever">
+            <label for="Cough">Cough :</label>
+            <input type="checkbox" name="Cough" id="Cough" >
+            <label for="Headache">Headache :</label>
+            <input type="checkbox" name="Headache" id="Headache">
+            <label for="InaCrowdedPlace">In a Crowded Place :</label>
+            <input type="checkbox" name="InaCrowdedPlace" id="InaCrowdedPlace">
+            <input type="submit" onclick="collect()">
+        </form>
+        <form action="display.html">
+            <input type="submit" value="Get Details" />
         </form>
         <p>This is our Facebook App</p>
     </div>
+    <script src="{% static 'homepage.js' %}"></script>
 </body>
 </html>

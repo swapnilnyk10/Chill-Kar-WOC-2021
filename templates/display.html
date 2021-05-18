@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+</head>
+<body>
+    <p>This is display page My Name is</p>
+    <form  method="POST" >
+        {% csrf_token %}
+        <label for="name">Enter Your First Name :</label>
+        <input type="name" name="name" id="name" required placeholder="Ex: John"><br>
+        <input type="submit">
+    </form>
+    <div>
+        <!-- {% for data in data1 %}
+            {% if name == data.firstname %}
+                <p>{{data.firstname }}</p>
+                {% endif %}
+        {% endfor %} -->
+        <ul style="list-style-type: none;">
+            <li>First Name : {{ins.firstname}}</li>
+            <li>Last Name : {{ins.lastname}}</li>
+            <li>Email : {{ins.Email}}</li>
+            <li>Phone : {{ins.phone}}</li>
+            <li>Blood Sugar : {{ins.BloodSugar}} mg/dL</li>
+            <li>Blood Pressure : {{ins.BloodPressureSystolic}}/{{ins.BloodPressureDiastolic}}</li>
+            <li>Pulse : {{ins.Pulse}} beats/minute</li>
+            <li>SpO2 : {{ins.SpO2}} %</li>
+            <li>Fever : {{ins.Fever}}</li>
+            <li>Cough : {{ins.Cough}}</li>
+            <li>Headache : {{ins.Headache}}</li>
+            <li>Travelled recently : {{ins.InaCrowdedPlace}}</li>
+        </ul>
+    </div>
+</body>
+</html>

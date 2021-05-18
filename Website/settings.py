@@ -128,3 +128,23 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Email Settings
+
+# This method is for receiving emails in the second terminal
+
+# EMAIL_HOST='localhost'
+# EMAIL_PORT = '1025'
+# EMAIL_HOST_USER =''
+# EMAIL_HOST_PASSWORD =''
+# EMAIL_USE_TLS = False
+# EMAIL_USE_SSL = False
+
+
+#Below Method is for actual Emails
+
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER ='swapnilnayak9@gmail.com'
+EMAIL_HOST_PASSWORD ='zjbugtmyvunisbuz '
+EMAIL_USE_TLS = True
