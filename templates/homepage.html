@@ -5,22 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Chill-Kar</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'homepage.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <nav>
-            <ul>
-                <li><a href="">Tab2</a></li>
-                <li><a href="">Tab1</a></li>
-                <li><a href="">Tab3</a></li>
-                <li><a href="">Tab4</a></li>
-                <li><a href="">Tab5</a></li>
-                <input type="text" placeholder="Search by Name,Phone Number or Email" id="search" >
-                <input type="submit" value="Search" id="button">
-            </ul>
+            <div class="head">Chill-Kar</div>
+            <div class="head2">(Your Health Companion)</div>
         </nav>
+        <p>Enter your details below to know whether you are safe or not !!!</p>
         <form action="/homepage.html" method="POST">
             {%csrf_token%}
             <label for="fname">First Name :</label>
@@ -29,12 +29,14 @@
             <input type="text" name="lname" placeholder="Ex: Wick" id="lname" required><br>
             <label for="Email">Email :</label>
             <input type="email" name="Email" placeholder="Ex: John@gmail.com" id="Email" required><br>
+            <label for="Key">Key (Used to fetch your previous details) :</label>
+            <input type="number" name="Key" id="Key" required placeholder="Ex: 1  (Max Size = 4)" size><br>
             <label for="phone">Phone :</label>
-            <input type="phone" name="phone" placeholder="Ex: 9823454238" id="phone" required><br>
+            <input type="phone" name="phone" placeholder="Ex: 9823454238" id="phone" required size="13"><br>
             <label for="BloodSugar">Blood Sugar (mg/dL) :</label>
-            <input type="number" name="BloodSugar" id="BloodSugar" required placeholder="Ex: 125mg/dL"><br>
+            <input type="number" name="BloodSugar" id="BloodSugar" required placeholder="Ex: 125mg/dL" ><br>
             <label for="Blood Pressure ">Blood Pressure (Systolic / Diastolic in mmHg) :</label>
-            <input type="number" name="BloodPressureSystolic" id="BloodPressureSystolic" required placeholder="120mmHg (Systolic)">
+            <input type="number" name="BloodPressureSystolic" id="BloodPressureSystolic" required placeholder="120mmHg (Systolic)" >
             <input type="number" name="BloodPressureDiastolic" id="BloodPressureDiastolic" required placeholder="80mmHg (Diastolic)"><br>
             <label for="Pulse">Pulse (Beats/Minute):</label>
             <input type="number" name="Pulse" id="Pulse" required placeholder="Ex: 72 Beats/Min"><br>
@@ -48,13 +50,16 @@
             <label for="Headache">Headache :</label>
             <input type="checkbox" name="Headache" id="Headache">
             <label for="InaCrowdedPlace">In a Crowded Place :</label>
-            <input type="checkbox" name="InaCrowdedPlace" id="InaCrowdedPlace">
-            <input type="submit" onclick="collect()">
-        </form>
+            <input type="checkbox" name="InaCrowdedPlace" id="InaCrowdedPlace"><br>
+            <input type="submit" onclick="collect()" value="Check" id="submit">
+        </form><br>
         <form action="display.html">
-            <input type="submit" value="Get Details" />
+            <label id="past">Click Past Readings to get your previous recordings :</label>
+            <input type="submit" value="Past Readings" id="details">
         </form>
-        <p>This is our Facebook App</p>
+        <div class="bubbles">
+        <img src="{%static 'images/CoronaVirus.png'%}" alt="">
+        </div>
     </div>
     <script src="{% static 'homepage.js' %}"></script>
 </body>

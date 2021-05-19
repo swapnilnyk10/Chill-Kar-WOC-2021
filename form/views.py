@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from form.models import collect
-from form.models import Data
+# from form.models import Data
 from  django.core.mail import send_mail
 # Create your views here.
 def index(request):
@@ -10,6 +10,7 @@ def homepage(request):
         fname = request.POST['fname']
         lname = request.POST['lname']
         Email = request.POST['Email']
+        Key = request.POST['Key']
         phone = request.POST['phone']
         BloodSugar = request.POST['BloodSugar']
         BloodPressureSystolic = request.POST['BloodPressureSystolic']
@@ -23,12 +24,12 @@ def homepage(request):
 
         send_mail(
             fname + lname,#Subject
-            "Blood Sugar = " + BloodSugar  + " "+"Blood Pressure Systolic = "+ BloodPressureSystolic  + " " +"Blood Pressure Systolic = "+ BloodPressureDiastolic + " " + "Pulse = " + Pulse  + " "+ "SpO2 = " +SpO2 ,#Message
+            "Phone :"+ phone +" " + "Blood Sugar = " + BloodSugar  + " "+"Blood Pressure Systolic = "+ BloodPressureSystolic  + " " +"Blood Pressure Systolic = "+ BloodPressureDiastolic + " " + "Pulse = " + Pulse  + " "+ "SpO2 = " +SpO2 ,#Message
             Email,#From Email
             ['swapnilnayak9@gmail.com'],#To Email
         )
 
-        ins = collect(firstname=fname,lastname=lname,Email=Email,phone=phone,BloodSugar=BloodSugar,BloodPressureSystolic=BloodPressureSystolic,BloodPressureDiastolic=BloodPressureDiastolic,Pulse=Pulse,SpO2=SpO2,Fever=Fever,Cough=Cough,Headache=Headache,InaCrowdedPlace=InaCrowdedPlace)
+        ins = collect(firstname=fname,lastname=lname,Email=Email,Key=Key,phone=phone,BloodSugar=BloodSugar,BloodPressureSystolic=BloodPressureSystolic,BloodPressureDiastolic=BloodPressureDiastolic,Pulse=Pulse,SpO2=SpO2,Fever=Fever,Cough=Cough,Headache=Headache,InaCrowdedPlace=InaCrowdedPlace)
         
         ins.save()
     return render(request,'homepage.html')
@@ -36,9 +37,11 @@ def homepage(request):
 def display(request):
     # name = request.POST['name']
     name = request.POST.get('name')
+    phone = request.POST.get('phone')
+    Key = request.POST.get('Key')
     data1 = collect.objects.all()
     for ins in data1:
-        if name == ins.firstname:
+        if name == ins.firstname and phone == ins.phone and Key == ins.Key:
             return render(request,"display.html",{'ins':ins})
             break
     else :

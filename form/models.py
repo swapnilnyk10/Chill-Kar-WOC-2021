@@ -5,6 +5,7 @@ class collect(models.Model):
     firstname = models.CharField(max_length=30)
     lastname = models.CharField(max_length=30)
     Email = models.EmailField(default="Default@gmail.com")
+    Key = models.CharField(max_length=5,default="1")
     phone = models.CharField(max_length=10)
     BloodSugar = models.CharField(max_length=4)
     BloodPressureSystolic = models.CharField(max_length=4,default="Default")
@@ -20,17 +21,3 @@ class collect(models.Model):
         return self.firstname+ " "+self.lastname
 
 
-class Data:
-    fname : str
-    lname : str
-    Email : str
-    phone : str
-    BloodSugar : int
-    BloodPressureSystolic : int
-    BloodPressureDiastolic : int
-    Pulse : int
-    SpO2 : int
-    Fever : bool
-    Cough : bool
-    Headache : bool
-    InaCrowededPlace : bool

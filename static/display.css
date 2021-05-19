@@ -42,6 +42,11 @@ label{
     font-family: 'Gochi Hand', cursive;
     font-size: 6mm;
 }
+li{
+    margin-left: 7mm;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 6mm;
+}
 input{
     height: 7mm;
     margin-top: 3mm;
@@ -49,26 +54,11 @@ input{
     font-family: 'Gochi Hand', cursive;
     font-size: 5mm;
 }
-#Fever,#Cough,#Headache,#InaCrowdedPlace{
-    position: relative;
-    top: 2mm;
-    right: 6mm;
-}
 #submit{
     padding-right: 1.5mm;
     padding-left:1.5mm ;
     margin-left: 6mm;
     border-radius: 2mm;
-}
-#details{
-    margin-left: -6mm ;
-    padding-right: 1.5mm;
-    padding-left:1.5mm ;
-    border-radius: 2mm;
-    font-size: 4mm;
-}
-#past{
-    font-size: 5mm;
 }
 img{
     position: absolute;

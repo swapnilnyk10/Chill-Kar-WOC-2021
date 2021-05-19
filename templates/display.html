@@ -1,39 +1,55 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display</title>
+    <title>Past Readings</title>
+    <link rel="stylesheet" href="{% static 'display.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
 </head>
 <body>
-    <p>This is display page My Name is</p>
+    <nav>
+        <div class="head">Chill-Kar</div>
+        <div class="head2">(Your Health Companion)</div>
+    </nav>
+    <p>Enter your Name and Phone number to get your previous details</p>
     <form  method="POST" >
         {% csrf_token %}
         <label for="name">Enter Your First Name :</label>
         <input type="name" name="name" id="name" required placeholder="Ex: John"><br>
-        <input type="submit">
+        <label for="Key">Key :</label>
+        <input type="Key" name="Key" placeholder="Ex: 1   (Max Size =4)" id="Key" required><br>
+        <label for="phone">Phone :</label>
+        <input type="phone" name="phone" placeholder="Ex: 9823454238" id="phone" required><br>
+        <input type="submit" id="submit">
     </form>
     <div>
-        <!-- {% for data in data1 %}
-            {% if name == data.firstname %}
-                <p>{{data.firstname }}</p>
-                {% endif %}
-        {% endfor %} -->
         <ul style="list-style-type: none;">
             <li>First Name : {{ins.firstname}}</li>
             <li>Last Name : {{ins.lastname}}</li>
             <li>Email : {{ins.Email}}</li>
+            <li>Key : {{ins.Key}}</li>
             <li>Phone : {{ins.phone}}</li>
             <li>Blood Sugar : {{ins.BloodSugar}} mg/dL</li>
             <li>Blood Pressure : {{ins.BloodPressureSystolic}}/{{ins.BloodPressureDiastolic}}</li>
             <li>Pulse : {{ins.Pulse}} beats/minute</li>
-            <li>SpO2 : {{ins.SpO2}} %</li>
+            <li>SpO2 : {{ins.SpO2}} </li>
             <li>Fever : {{ins.Fever}}</li>
             <li>Cough : {{ins.Cough}}</li>
             <li>Headache : {{ins.Headache}}</li>
             <li>Travelled recently : {{ins.InaCrowdedPlace}}</li>
         </ul>
+        <p>{{sentence}}</p>
+        <div class="bubbles">
+            <img src="{%static 'images/CoronaVirus.png'%}" alt="">
+            </div>
     </div>
 </body>
 </html>
