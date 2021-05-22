@@ -1,7 +1,7 @@
 *{
     margin: 0%;
     padding: 0ch;
-    overflow: hidden
+    
 }
 nav{
     background-color: rgb(0 0 0 / 72%);
@@ -54,7 +54,7 @@ input{
     top: 2mm;
     right: 6mm;
 }
-#submit{
+#submit,#Prescription{
     padding-right: 1.5mm;
     padding-left:1.5mm ;
     margin-left: 6mm;

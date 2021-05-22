@@ -1,12 +1,18 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
+class Room(models.Model):
+    name = models.CharField(max_length=1000)
+class Message(models.Model):
+    value = models.CharField(max_length=1000000)
+    date = models.DateTimeField(default=datetime.now, blank=True)
+    user = models.CharField(max_length=1000000)
+    room = models.CharField(max_length=1000000)
 class collect(models.Model):
-    firstname = models.CharField(max_length=30)
-    lastname = models.CharField(max_length=30)
+    username = models.CharField(max_length=40,default="")
     Email = models.EmailField(default="Default@gmail.com")
-    Key = models.CharField(max_length=5,default="1")
-    phone = models.CharField(max_length=10)
+    phone = models.CharField(max_length=10,default="")
     BloodSugar = models.CharField(max_length=4)
     BloodPressureSystolic = models.CharField(max_length=4,default="Default")
     BloodPressureDiastolic = models.CharField(max_length=4,default="Default")
@@ -18,6 +24,6 @@ class collect(models.Model):
     InaCrowdedPlace=models.BooleanField(default=False)
     # the code below is for customizing objects name
     def __str__(self):
-        return self.firstname+ " "+self.lastname
+        return self.username
 
 

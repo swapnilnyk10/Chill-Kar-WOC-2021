@@ -6,6 +6,31 @@
     background-image:url(images/BG-1.jpeg);
     color: #c9cfda;
 }
+nav{
+    background-color: rgb(0 0 0 / 72%);
+    width: 100vw;
+    height: 60px;
+} 
+.head{
+    font-size: 9mm;
+    font-family: 'Pattaya', sans-serif;
+    display: inline;
+    color: aliceblue;
+    position: relative;
+    left: 46%;
+    top: 20%;
+    text-shadow: 2px 2px 5px #4ea036;
+}
+.head2{
+    font-size: 4mm;
+    font-family: 'Pattaya', sans-serif;
+    display: inline;
+    color: aliceblue;
+    position: relative;
+    left: 46%;
+    top: 20%;
+    text-shadow: 2px 2px 8px #4ea036;
+}
 #first{
     position: absolute;
     left: 35%;

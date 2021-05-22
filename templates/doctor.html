@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>docpage</title>
+    <style>
+      .color1{
+       border: blue;
+       border-style: solid;
+       margin: 10px;
+       padding-left: 20px;
+       padding-top: 10px;
+       padding-bottom: 10px;
+        width: 500px;
+      }
+      h2{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15mm;
+        text-shadow: 2px 2px 5px aliceblue;
+        margin-left: 60px;
+        color: rgb(47, 119, 212);
+    }
+    div{
+        font-family: cursive;
+        font-size: 9mm;
+        margin-left: 10px;
+        text-shadow: 2px 2px 3px rgb(214, 222, 230);
+        border-style: solid;
+        border-radius: 5px;
+        border: rgb(57, 103, 202) ;
+        width: fit-content;
+    
+    }
+    input{
+        padding: 5px;
+        border-radius: 7px;
+    }
+    .color2{
+      margin-left: 30%;
+      margin-right: 20%;
+    }
+    </style>
+</head>
+<body >
+  <div class="color2">
+<h2>list of patient</h2>
+{% for room in rooms %}
+<div class="color1">
+  patient-{{room.name}}
+  <form id="post-form" method="POST" action="checkview">
+    {% csrf_token %}
+    <label></label>
+    <input type="hidden" name="room_name" value={{room.name}} id="room_name" width="100px" />
+    <label></label>
+    <input type="hidden" name="username" value="doctor" id="username" width="100px" />
+    <input type="submit" value="enter">
+</form> 
+</div>
+{% endfor %}
+</div>
+</body>
+</html>

@@ -1,26 +1,120 @@
 
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <!-- <link rel="stylesheet" href="index.css"> -->
-    <link rel="stylesheet" href="{% static 'index.css' %}">
-    <script src="{% static 'index.js' %}"> </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <title>page 1</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            
+        }
+        nav{
+            background-color: rgb(0 0 0 / 72%);
+            width: 100vw;
+            height: 60px;
+        } 
+        .head{
+            font-size: 9mm;
+            font-family: 'Pattaya', sans-serif;
+            display: inline;
+            color: aliceblue;
+            position: relative;
+            left: 46%;
+            top: 20%;
+            text-shadow: 2px 2px 5px #4ea036;
+        }
+        .head2{
+            font-size: 4mm;
+            font-family: 'Pattaya', sans-serif;
+            display: inline;
+            color: aliceblue;
+            position: relative;
+            left: 46%;
+            top: 20%;
+            text-shadow: 2px 2px 8px #4ea036;
+        }
+        .color1{
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-top: 4%;
+            margin-bottom: 4%;
+            font-size: x-large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        h1{
+            align-items: center;
+            margin-left: 28%;
+            color: rgb(32, 116, 212);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 60px;
+        }
+        h3{
+            margin-left: 38mm;
+        }
+    .flex-container {
+        display: flex;
+        background-color: DodgerBlue;
+        margin-left: 350px;
+        margin-right: 350px;
+      }
+      
+      .flex-container > div {
+        background-color: #f1f1f1;
+        margin: 10px;
+        padding: 20px;
+        font-size: 30px;
+      }
+      </style>
+      </head>
+      <body> 
 </head>
 <body>
-    <div class="container">
-        <div>
-            <div id="first">Loading ...
-                <div id="loading">
-                    <div id="bar"></div>
-                </div>
-                <p id ="second">Meanwhile you can sanitize your hands!!!</p>
-            </div>
-        </div>
+    <nav>
+        <div class="head">Chill-Kar</div>
+        <div class="head2">(Your Health Companion)</div>
+      </nav>
+    <h1>Popeye-KA-Palak</h1>
+    <h3>Created by Shouvik Khanra,Swapnil Nayak,Nitin Shukla.</h3>
+    <div class="color1">
+    This is a website for continuous observation of covid patient who are in their home isolation .
+   this website let patients and doctor login to their portal.Where patient can update their status at regular interval and doctor can keep in 
+   constant touch with their patient.
     </div>
+
+    <div class="flex-container">
+    <div>
+        PATIENT
+    <form id="post-form"  action="homepage.html">
+        {% csrf_token %}
+        <label>phone number</label>
+        <input type="text" name="room_name" id="room_name" width="100px" />
+        <br>
+        <label>Username</label>
+        <input type="text" name="username" id="username" width="100px" />
+        <br>
+        <input type="submit" value="enter">
+    </form> 
+</div>
+<div>
+    DOCTOR
+<form id="post-form"  action="doctor.html">
+    {% csrf_token %}
+    <label >This is a Prototype so we have entered all the necessary things automatically</label><br>
+    <!-- <label>phone number</label>
+     <input type="text" name="phone" id="phone" width="100px" />
+    <br>
+    <label>Username</label>
+    <input type="text" name="username1" id="username1" width="100px" />
+    <br> -->
+    <input type="submit" value="enter">
+</form> 
+</div>
+</div>
 </body>
 </html>

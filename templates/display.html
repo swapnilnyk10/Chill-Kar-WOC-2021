@@ -19,35 +19,32 @@
         <div class="head">Chill-Kar</div>
         <div class="head2">(Your Health Companion)</div>
     </nav>
-    <p>Enter your Name and Phone number to get your previous details</p>
-    <form  method="POST" >
-        {% csrf_token %}
-        <label for="name">Enter Your First Name :</label>
-        <input type="name" name="name" id="name" required placeholder="Ex: John"><br>
-        <label for="Key">Key :</label>
-        <input type="Key" name="Key" placeholder="Ex: 1   (Max Size =4)" id="Key" required><br>
-        <label for="phone">Phone :</label>
-        <input type="phone" name="phone" placeholder="Ex: 9823454238" id="phone" required><br>
-        <input type="submit" id="submit">
-    </form>
+    
     <div>
+        {% for data in datas %}
+        {% if data.username == name %}
+
+        <div>
         <ul style="list-style-type: none;">
-            <li>First Name : {{ins.firstname}}</li>
-            <li>Last Name : {{ins.lastname}}</li>
-            <li>Email : {{ins.Email}}</li>
-            <li>Key : {{ins.Key}}</li>
-            <li>Phone : {{ins.phone}}</li>
-            <li>Blood Sugar : {{ins.BloodSugar}} mg/dL</li>
-            <li>Blood Pressure : {{ins.BloodPressureSystolic}}/{{ins.BloodPressureDiastolic}}</li>
-            <li>Pulse : {{ins.Pulse}} beats/minute</li>
-            <li>SpO2 : {{ins.SpO2}} </li>
-            <li>Fever : {{ins.Fever}}</li>
-            <li>Cough : {{ins.Cough}}</li>
-            <li>Headache : {{ins.Headache}}</li>
-            <li>Travelled recently : {{ins.InaCrowdedPlace}}</li>
+            <li>user Name : {{data.username}}</li>
+            
+            <li>Email : {{data.Email}}</li>
+            
+            <li>Phone : {{data.phone}}</li>
+            <li>Blood Sugar : {{data.BloodSugar}} mg/dL</li>
+            <li>Blood Pressure : {{data.BloodPressureSystolic}}/{{data.BloodPressureDiastolic}} mm/Hg</li>
+            <li>Pulse : {{data.Pulse}} beats/minute</li>
+            <li>SpO2 : {{data.SpO2}} %</li>
+            <li>Fever : {{data.Fever}}</li>
+            <li>Cough : {{data.Cough}}</li>
+            <li>Headache : {{data.Headache}}</li>
+            <li>Travelled recently : {{data.InaCrowdedPlace}}</li>
+            <hr>
         </ul>
-        <p>{{sentence}}</p>
-        <div class="bubbles">
+    </div>
+    {% endif %}
+     {% endfor %}  
+    <div class="bubbles">
             <img src="{%static 'images/CoronaVirus.png'%}" alt="">
             </div>
     </div>

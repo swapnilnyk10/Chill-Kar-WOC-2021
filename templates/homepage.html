@@ -15,24 +15,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <div class="head">Chill-Kar</div>
-            <div class="head2">(Your Health Companion)</div>
-        </nav>
+    <nav>
+        <div class="head">Chill-Kar</div>
+        <div class="head2">(Your Health Companion)</div>
+    </nav>
+   
         <p>Enter your details below to know whether you are safe or not !!!</p>
-        <form action="/homepage.html" method="POST">
+        <form id="post-form" method="POST" action="checkview">
+            {% csrf_token %}
+            <input type="hidden" name="room_name" value={{room}} id="room_name" width="100px" />
+            <input type="hidden" name="username" value={{username}} id="username" width="100px" />
+            <input type="submit" value="Chat With Doctor" id="Prescription">
+        </form> 
+        
+        <form action="check" method="POST" >
             {%csrf_token%}
-            <label for="fname">First Name :</label>
-            <input type="text" name="fname" placeholder="Ex: John" id="fname" required><br>
-            <label for="lname">Last Name :</label>
-            <input type="text" name="lname" placeholder="Ex: Wick" id="lname" required><br>
+            
+            <input type="hidden" name="fname" placeholder="Ex: John" value={{username}} id="fname" required>
             <label for="Email">Email :</label>
             <input type="email" name="Email" placeholder="Ex: John@gmail.com" id="Email" required><br>
-            <label for="Key">Key (Used to fetch your previous details) :</label>
-            <input type="number" name="Key" id="Key" required placeholder="Ex: 1  (Max Size = 4)" size><br>
-            <label for="phone">Phone :</label>
-            <input type="phone" name="phone" placeholder="Ex: 9823454238" id="phone" required size="13"><br>
+            
+            <input type="hidden" name="phone" value={{phone}} id="phone" required size="13"><br>
             <label for="BloodSugar">Blood Sugar (mg/dL) :</label>
             <input type="number" name="BloodSugar" id="BloodSugar" required placeholder="Ex: 125mg/dL" ><br>
             <label for="Blood Pressure ">Blood Pressure (Systolic / Diastolic in mmHg) :</label>
@@ -51,10 +54,12 @@
             <input type="checkbox" name="Headache" id="Headache">
             <label for="InaCrowdedPlace">In a Crowded Place :</label>
             <input type="checkbox" name="InaCrowdedPlace" id="InaCrowdedPlace"><br>
+        
             <input type="submit" onclick="collect()" value="Check" id="submit">
         </form><br>
         <form action="display.html">
-            <label id="past">Click Past Readings to get your previous recordings :</label>
+            <input type="hidden" id="username" name="username" value={{username}}>
+            <label id="past">Click Past Readings to get your previous recordings :</label>    
             <input type="submit" value="Past Readings" id="details">
         </form>
         <div class="bubbles">
