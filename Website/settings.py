@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mn4o@1jo@t17x@kqv!$5qfsfclt9b2fu%#l6w(h)p1hx%a&mk!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['chill-kar.herokuapp.com' ,'127.0.0.1']
 
 
 # Application definition
@@ -145,4 +145,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT = '587'
+EMAIL_HOST_USER ='swapnilnayak9@gmail.com'
+EMAIL_HOST_PASSWORD ='zjbugtmyvunisbuz '
 EMAIL_USE_TLS = True
